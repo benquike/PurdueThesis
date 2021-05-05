@@ -1,6 +1,8 @@
 # PurdueThesis
 
-This is a Latex template for PurdueThesis. 
+This is a Latex template for PurdueThesis with my own bug fixes.
+
+Please feel free to submit your fixes here.
 
 Detail introduction is covered [here](https://engineering.purdue.edu/~mark/PurdueThesis/).
 
