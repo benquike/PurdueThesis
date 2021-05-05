@@ -1,0 +1,26 @@
+name: build PurdueThesis with rubber
+
+
+# using private containers following instructions here
+# https://github.blog/changelog/2020-09-24-github-actions-private-registry-support-for-job-and-service-containers/
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: benquike/ubuntu20.04:latex
+      credentials:
+        username: benquike
+        password: ${{ secrets.DOCKER_HUB_PASSWORD}}
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+
+    - name: Build
+      working-directory: ${{github.workspace}}/${{env.BUILD_DIR}}
+      shell: bash
+      # Execute the build.  You can specify a specific target with "--target <NAME>"
+      run: make
