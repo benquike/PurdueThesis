@@ -1,0 +1,146 @@
+\ProvidesFile{ap-text.tex}[2021-01-04 text appendix]
+
+\begin{VerbatimOut}{z.out}
+\chapter{TEXT}
+
+
+\section{Frenchspacing}
+
+The ``\verb+\frenchspacing+'' command puts one space after sentences.
+Normally two spaces are put after sentences.
+
+{\frenchspacing
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam
+cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at,
+laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris
+ante, elementum et, bibendum at, posuere sit amet, nibh. Duis
+tincidunt lectus quis dui viverra vestibulum. Suspendisse
+vulputate aliquam dui. Nulla elementum dui ut augue. Aliquam
+vehicula mi at mauris. Maecenas placerat, nisl at consequat
+rhoncus, sem nunc gravida justo, quis eleifend arcu velit quis
+lacus. Morbi magna magna, tincidunt a, mattis non, imperdiet
+vitae, tellus. Sed odio est, auctor ac, sollicitudin in,
+consequat vitae, orci. Fusce id felis. Vivamus sollicitudin metus
+eget eros.\endgraf
+}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam
+cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at,
+laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris
+ante, elementum et, bibendum at, posuere sit amet, nibh. Duis
+tincidunt lectus quis dui viverra vestibulum. Suspendisse
+vulputate aliquam dui. Nulla elementum dui ut augue. Aliquam
+vehicula mi at mauris. Maecenas placerat, nisl at consequat
+rhoncus, sem nunc gravida justo, quis eleifend arcu velit quis
+lacus. Morbi magna magna, tincidunt a, mattis non, imperdiet
+vitae, tellus. Sed odio est, auctor ac, sollicitudin in,
+consequat vitae, orci. Fusce id felis. Vivamus sollicitudin metus
+eget eros.
+\end{VerbatimOut}
+
+\MyIOS
+
+
+\begin{VerbatimOut}{z.out}
+\section{Multiple Columns}
+
+Depending on what version of \LaTeX\ you're running
+the \verb+multicols+ package may or may not do what
+you want.
+
+% The multicols package must be loaded for this to work.
+% To load the multicols package put
+%     \usepackage{multicols}
+% between the "\documentclass" and "\begin{document}" commands.
+
+% Put this amount of space between the columns.
+% Let's use the default column separation to see what happens.
+% \setlength{\columnsep}{0.5truein}
+
+% Separate the columns with a vertical rule this wide.
+% Make the column three times the default width.
+\setlength{\columnseprule}{1.2pt}
+
+This is one column\MyRepeat{This is one column.  }{10}
+
+\begin{multicols}{2}
+  \MyRepeat{This is two columns.  }{12}
+\end{multicols}
+
+\begin{multicols}{3}
+  \MyRepeat{This is three columns.  }{9}
+\end{multicols}
+
+\begin{multicols}{4}
+  \MyRepeat{This is four columns.  }{10}
+\end{multicols}
+
+\begin{multicols}{5}
+  \MyRepeat{This is five columns.  }{10}
+\end{multicols}
+\end{VerbatimOut}
+
+\MyIOS
+
+
+\begin{VerbatimOut}{z.out}
+
+
+\section{Words}
+
+\newenvironment{entry}
+{%
+  \bigskip
+  % Start a \vbox here.
+  % Everything in a \vbox is guaranteed to be on the same page.
+  \vbox\bgroup
+    \noindent
+}
+{%
+  % End the \vbox here.
+  \egroup
+}
+
+\begin{entry}
+  {\bfseries irregardless}\qquad
+  is a nonstandard word that means regardless.
+  Use \emph{regardless} instead
+  \cite{merriam-webster-irregardless}.
+\end{entry}
+
+\begin{entry}
+  {\bfseries out of date / out-of-date}\qquad
+  means ``outmoded, obsolete''.
+  \cite{merriam-webster-out-of-date}.
+
+  When it comes after the noun,
+  the compound adjective usually doesn't get a hyphen.
+  So we say an easy-to-remember number,
+  but the number is easy to remember.
+  Same goes for up to date---if it's before a noun it needs a hyphen.
+  A document is up to date but it's an up-to-date document
+  \cite{thewriter-to-hyphenate-or-not-to-hyphenate}.
+  Also see
+  \cite{oed-out-of-date}.
+
+  In the context of writing about out-of-date software you may want to
+  use ``deprecated'' \cite{merriam-webster-deprecated} instead.
+\end{entry}
+
+\begin{entry}
+  {\bfseries start-up / start-up company}\qquad
+  means a fledgling business enterprise
+  \cite{wikipedia-startup-company}.
+  I would use the more modern \emph{startup}
+  and only use \emph{company} if not clear from the context.
+\end{entry}
+
+\begin{entry}
+  {\bfseries peace out}\qquad
+  means
+  ``goodbye''
+  \cite{online-slang-dictionary-peace-out}
+\end{entry}
+\end{VerbatimOut}
+
+\MyIOS

@@ -1,0 +1,799 @@
+\ProvidesFile{ap-mathematics.tex}[2021-02-10 mathematics appendix]
+
+\begin{VerbatimOut}{z.out}
+\chapter{MATHEMATICS}
+
+\PurdueThesis\ loads the \amsmath\ package \cite{amslatex3project2019}
+to do mathematics.
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+There are two types of mathematics in \LaTeX.
+Text math is math that that is interspersed with text.
+For example, this is text math: \(a = b + c\).
+This is display math:
+\begin{equation}
+  a = b + c
+\end{equation}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+\newpage
+
+\section{Standard Functions}
+
+Standard functions should be in a roman font.
+Like this: \(\cos\theta\).
+
+Here is a list of standard function commands:\\
+
+\hbox to\hsize{%
+  \indent
+  \vbox{
+    \begin{tabular}{@{}llll@{}}
+      \verb+\arccos+& \verb+\csc+& \verb+\ker+&    \verb+\min+\\
+      \verb+\arcsin+& \verb+\deg+& \verb+\lg+&     \verb+\Pr+\\
+      \verb+\arctan+& \verb+\det+& \verb+\lim+&    \verb+\sec+\\
+      \verb+\arg+&    \verb+\dim+& \verb+\liminf+& \verb+\sin+\\
+      \verb+\cos+&    \verb+\exp+& \verb+\limsup+& \verb+\sinh+\\
+      \verb+\cosh+&   \verb+\gcd+& \verb+\ln+&     \verb+\sup+\\
+      \verb+\cot+&    \verb+\hom+& \verb+\log+&    \verb+\tan+\\
+      \verb+\coth+&   \verb+\inf+& \verb+\max+&    \verb+\tanh+\\
+    \end{tabular}
+  }
+}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+\newpage
+
+\section{English Words in Math}
+
+English words in math should be in a roman font like this:\\
+Let the maximum value of \(a\) be \(a_\text{max}\).\\
+\(a_\text{max} \ge a_\text{min}\) should always be true.\\
+The temperature in the attic is \(t_\text{attic}\).
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+\section{Text Math}
+
+Use \verb+\(+ to start text math and \verb+\)+ to end text math.
+Some people use \verb+$+ to start and end text math---I don't
+recommend that because \LaTeX\ can give better error messages
+if you use \verb+\(+ and \verb+\)+.
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+\section{Displayed Equations}
+
+Do not use \verb+$$+ to start or end displayed math like \TeX\ uses
+\cite{gratzer2016}.
+
+The \amsmath\ package provides a number
+of additional displayed equation structures
+beyond the ones provided in basic \LaTeX.
+The augmented set includes \cite{amslatex3project2019b}:
+
+\hbox to\hsize{%
+  \indent
+  \vbox{
+    \begin{tabular}{@{}ll@{}}
+      \toprule
+      \bfseries Environment& \bfseries Used for\\
+      \midrule
+      \tt equation& used for single equations\\
+      \tt multline& split single equations over multiple lines\\
+      \tt gather& collect but do not align multiple equations\\
+      \tt align& align multiple equations\\
+      \tt alignat& aligns multiple equations at multiple places\\
+      \tt flalign& aligns multiple equations at multiple places on full length lines\\
+      \tt split& split a single equation over multiple lines\\
+      \bottomrule
+    \end{tabular}
+  }%
+}
+
+All but \verb+split+ can be followed by \verb+*+ to not number equations.
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\subsection{\texttt{equation} environment}
+
+The \verb+equation+ environment is used for single equations.
+
+\begin{equation}
+  E = mc^2
+\end{equation}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+The \verb+equation*+ environment does single, unnumbered equations.
+
+\begin{equation*}
+  a = b_0c + \frac12 de^2 + {\textstyle \frac12} fg^2
+    + h_1 + h_2 + \cdots + h_n
+    \qquad \text{for \(c \ne d\) and \( g < \infty\)}
+\end{equation*}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+International standard ISO 80000-2:2019 \cite{iso8000022019}
+states that $\mit e$,~$\mit i$,~$\mit j$,
+and $\itpi$ should appear as
+$e$,~$i$,~$j$
+and~$\pi$ because they are constants.
+This is done automatically by the mismath package
+that is loaded by thesis.tex.
+See thesis.tex for more information,
+including what to do if you're not using those as constants.
+
+Euler's identity is
+\begin{equation*}
+  e^{i\pi} + 1 = 0.
+\end{equation*}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+Here's a simple formula relating $e$,~$i$,~$\pi$, and~$\phi$,
+the golden ratio
+\begin{equation}
+  e^{i\pi} + 2\phi = \sqrt 5.
+\end{equation}
+I didn't notice anything on the web about putting the symbol for
+the golden ratio in a special font even though it is a constant.
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+  
+International standard ISO 80000-2:2019 \cite{iso8000022019}
+states that the ``$d\/$'' in math differentials
+should be typeset as ``$\di$''.
+So,
+\begin{equation*}
+  \text{use } \int x\di x\qquad\qquad \text{instead of } \int x\,dx
+\end{equation*}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+The formula for Bekenstein-Hawking entropy:
+
+\begin{equation*}
+  S_\text{BH} = \frac A{4L_P^2} = \frac{c^3A}{4G\hbar}
+\end{equation*}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+Type in the math and let \LaTeX\ worry about the spacing.
+You only need to do fine tuning by hand if it looks bad.  
+
+Another \verb+equation*+ environment,
+note the spacing before the large close parenthesis:
+
+\begin{equation*}
+  \frac ab = ab^{-1}
+    % Parens are the wrong size.
+    = (\sqrt{\frac ab})^2
+    % Parens are the right size but closing paren is too close to radical.
+    = \left( \sqrt\frac ab \right)^2
+    % Parens are right size but a negative thin space puts closing paren too close to radical.
+    = \left( \sqrt\frac ab \!\right)^2
+    % Parens are right size but a thin space puts closing paren too close to radical.
+    = \left( \sqrt\frac ab \,\right)^2
+    % Parens are right size but a medium space puts closing paren too close to radical.
+    = \left( \sqrt\frac ab \:\right)^2
+    % Parens are right size and I think a thick space looks the best.
+    = \left( \sqrt\frac ab \;\right)^2
+\end{equation*}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{equation*}
+  (\cos x)^2 + (\sin x)^2 = \cos^2 x + \sin^2 x = 1
+\end{equation*}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{equation}
+  x \mod 2 =
+  \begin{cases}
+    0& \text{if $x$ is even}\\
+    1& \text{if $x$ is odd}\\
+  \end{cases}
+\end{equation}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+The first six derivatives of distance are velocity, acceleration, jerk, snap, crackle, and pop \cite{reid2013}.
+
+\begin{equation}
+  % Every array element should be in \displaystyle (a big font).
+  \AtBeginEnvironment{array}{\everymath{\displaystyle}}
+  % Set space between columns to zero, use {} = ... to add a little space before the = "by hand".
+  \arraycolsep = 0pt
+  \text{distance derivitives} = \left\{\ %
+    \begin{array}{llllllll}
+      % I'm formatting the first 4 lines different from the last 3 so this will fit on one page.
+      x&      {}=\text{distance}&     {}=vt\\[2pt]
+      v&      {}=\text{velocity}&     {}=\frac{\di x}{\di t}\\[9pt]
+      a&      {}=\text{acceleration}& {}=\frac{\di v}{\di t}& {}=\frac{\di^2x}{\di t^2}\\[9pt]
+      \mit j& {}=\text{jerk}&         {}=\frac{\di a}{\di t}& {}=\frac{\di^2v}{\di t^2}&
+        {}=\frac{\di^3x}{\di t^3}\\[9pt]
+      s
+        & {}=\text{snap}
+        & {}=\frac{\di \mit j}{\di t}
+        & {}=\frac{\di^2a}{\di t^2}
+        & {}=\frac{\di^3v}{\di t^3}
+        & {}=\frac{\di^4x}{\di t^4}\\[9pt]
+      c
+        & {}=\text{crackle}
+        & {}=\frac{\di s}{\di t}
+        & {}=\frac{\di^2\mit j}{\di t^2}
+        & {}=\frac{\di^3a}{\di t^3}
+        & {}=\frac{\di^4v}{\di t^4}
+        & {}=\frac{\di^5x}{\di t^5}\\[9pt]
+      % 
+      p
+        & {}=\text{pop}
+        & {}=\frac{\di c}{\di t}
+        & {}=\frac{\di^2s}{\di t^2}
+        & {}=\frac{\di^3\mit j}{\di t^3}
+        & {}=\frac{\di^4a}{\di t^4}
+        & {}=\frac{\di^5v}{\di t^5}
+        & {}=\frac{\di^6x}{\di t^6}
+    \end{array}
+  \right.
+\end{equation}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\subsection{\texttt{multline} environment}
+
+The \verb+multline+ environment is used
+to split single equations over multiple lines.
+
+\begin{multline}
+  S = a + b + c + d + e + f + g + h + i + j\\
+  + k + l + m + n + o + p\\
+  + q + r + s + t + u + v + w + x + y + z
+\end{multline}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{multline}
+  S = a + b + c + d + e\\
+  + f + g + h + i + j\\
+  + k + l + m + n + o\\
+  + p + q + r + s + t\\
+  + u + v + w + x + y\\
+  + z
+\end{multline}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+% Calculate width of space before equation plus equation number.
+% (All digits are the same width.)  
+\newdimen{\tdimen}
+\settowidth{\tdimen}{\kern\multlinetaggap (L.5)}
+\begin{multline}
+  S = a + b + c + d + e\\
+  \makebox[\textwidth]{\hfill $+ f + g + h + i + j$\hfill\hfill\hfill\hfill\kern\tdimen}\\
+  \makebox[\textwidth]{\hfill\hfill${} + k + l + m + n + o$\hfill\hfill\hfill\kern\tdimen}\\
+  \makebox[\textwidth]{\hfill\hfill\hfill${} + p + q + r + s + t$\hfill\hfill\kern\tdimen}\\
+  \makebox[\textwidth]{\hfill\hfill\hfill\hfill${} + u + v + w + x + y$\hfill\kern\tdimen}\\
+  + z
+\end{multline}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\subsection{\texttt{gather} environment}
+
+The \verb+gather+ environment collects but does not align multiple equations.
+
+\begin{gather}
+  a = b + c + d + e + f + g + h + i + j + k + l\\
+  m = n + o + p + q + r + s + t + u + v + w + x + y + z
+\end{gather}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{gather}
+  a = b + c + d + e + f + g + h + i + j + k + l\notag\\
+  m = n + o + p + q + r + s + t + u + v + w + x + y + z
+\end{gather}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{gather*}
+  \alpha = \beta + \gamma + \delta + \eta\\
+  \theta = \iota + \kappa + \lambda + \mu + \nu + \rho + \tau
+\end{gather*}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{gather}
+  x_\text{min} + x_\text{max} \le \sum_{i=1}^n x_i\\
+  x_\text{min} + x_\text{max}
+    = \sum_{i=1}^n x_i - \sum_{i=2}^{n-1} x_i\quad\text{if $x$ is sorted}\\
+  x_\text{min} \le \left(\sum_{i=1}^n x_i\right) / n
+\end{gather}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\subsection{\texttt{align} environment}
+
+The \verb+align+ environment aligns multiple equations.
+
+\begin{align}
+  a &= b + c + d\\
+  e &= f + g + h + i + j
+\end{align}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{align}
+  x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}\notag\\
+  % Put a thin space before the b^2 to improve the appearance.
+  x = \frac{-b \pm \sqrt{\,b^2-4ac}}{2a}
+\end{align}
+\end{VerbatimOut}
+\index{align}
+\index{\verb+\begin{gather}+}
+\index{thin space}
+\index{\verb+\,+}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+  
+Quadratic formula proof \cite{khan}:
+
+% The align environment requires the amsmath package.
+% Use \addtolength{\jot}{6pt} to increase the space between rows in an amsmath multi-line math formula.
+% That's not done here so everything will fit on one page.
+\begin{align}
+  ax^2 + bx + c &= 0\\
+  ax^2 + bx &= -c\notag\\
+  % The "\," adds a thinspace of horizontal space.
+  x^2 + \frac ba\,x &= -\frac ca\notag\\
+  x^2 + \frac ba\,x + \frac{b^2}{4a^2} &= \frac{b^2}{4a^2} - \frac ca\notag\\
+  \left(x + \frac b{2a}\right)^2 &= \frac{b^2}{4a^2} - \frac ca\notag\\
+  \left(x + \frac b{2a}\right)^2 &= \frac{b^2}{4a^2} - \frac{4ac}{4a^2}\notag\\
+  \left(x + \frac b{2a}\right)^2 &= \frac{b^2-4ac}{4a^2}\notag\\
+  \sqrt{\left(x + \frac b{2a}\right)^2}
+    &= \sqrt{\left(\frac{b^2-4ac}{4a^2}\right)}\notag\\
+  x + \frac b{2a} &= \pm \frac{\sqrt{\,b^2-4ac}}{\sqrt{4a^2}}\notag\\
+  x + \frac b{2a} &= \pm \frac{\sqrt{\,b^2-4ac}}{2a}\notag\\
+  x &= - \frac b{2a} \pm \frac{\sqrt{\,b^2-4ac}}{2a}\notag\\
+  x &= \frac{-b \pm \sqrt{\,b^2-4ac}}{2a}
+\end{align}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\subsection{\texttt{alignat} environment}
+
+The \verb+alignat+ environment aligns multiple equations at multiple places.
+\begin{alignat}{2}
+  a &= b& \qquad\qquad& \text{set $a$}\\
+  c &= d& &             \text{you guessed it, set $c$}\notag\\
+  g &= h& &             \text{and finally, set $g$}
+\end{alignat}
+
+I like to align input columns on the input if possible
+and will sometimes use windows over~250 characters wide to do so.
+If that won't work I sometimes do,
+for example,
+\begin{alignat}{2}
+  a
+    &= b
+    & \qquad\qquad
+    & \text{set $a$}\\
+  c
+    &= d
+    &
+    &\text{you guessed it, set $c$}\notag\\
+  g
+    &= h
+    &
+    &\text{and finally, set $g$}
+\end{alignat}
+
+Do whatever works best for you.
+
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+  
+Quadratic formula proof \cite{khan}:
+
+% Make changes to \jot be local to the group that starts on the next line.
+{
+  % Increase distance between lines by 6pt.
+  \addtolength{\jot}{6pt}
+  \begin{alignat}{2}
+    ax^2 + bx + c
+      &= 0
+      &
+      &\text{subtract $c$}\\
+    ax^2 + bx
+      &= -c
+      &
+      &\text{divide by $a$}\notag\\
+    % The "\," adds a thinspace of horizontal space.
+    x^2 + \frac ba\,x
+      &= -\frac ca
+      &
+      &\text{add $\displaystyle\frac{b^2}{4a^2}$}\notag\\
+    x^2+\frac ba\,x+\frac{b^2}{4a^2}
+      &= \frac{b^2}{4a^2}-\frac ca
+      &
+      &\text{factor left hand side}\notag\\
+    \left(x+\frac b{2a}\right)^2
+      &= \frac{b^2}{4a^2}-\frac ca
+      &
+      &\text{multiply right-most term by $\displaystyle\frac{4a}{4a}$}\notag\\
+    \left(x + \frac b{2a}\right)^2
+      &= \frac{b^2}{4a^2}-\frac{4ac}{4a^2}
+      &
+      &\text{use common denominator}\notag\\
+    \left(x + \frac b{2a}\right)^2
+      &= \frac{b^2-4ac}{4a^2}
+      &
+      &\text{take square root of each side}\notag\\
+    \sqrt{\left(x + \frac b{2a}\right)^2}
+      &= \sqrt{\left(\frac{b^2-4ac}{4a^2}\right)}
+      &
+      &\text{compute square root of each side}\notag\\
+    x + \frac b{2a}
+      &= \pm \frac{\sqrt{\,b^2-4ac}}{\sqrt{4a^2}}
+      &
+      &\text{simplify right hand denominator}\notag\\
+    x + \frac b{2a}
+      &= \pm \frac{\sqrt{\,b^2-4ac}}{2a}
+      &
+      &\text{subtract $\displaystyle\frac b{2a}$ from each side}\notag\\
+    x
+      &= -\frac b{2a} \pm \frac{\sqrt{\,b^2-4ac}}{2a}
+      &\qquad
+      &\text{use common denominator}\notag\\
+    x
+      &= \frac{-b \pm \sqrt{\,b^2-4ac}}{2a}
+  \end{alignat}
+}
+\end{VerbatimOut}
+
+\MyIOS
+
+
+\begin{VerbatimOut}{z.out}
+
+\subsection{\texttt{flalign} environment}
+
+The \verb+flalign+ environment aligns multiple equations at multiple places
+on full length lines.
+
+\begin{flalign}
+  a &= b&   &   & u &= v\\
+  c &= d& m &= n& w &= x\notag\\
+  g &= h&   &   & y &= z
+\end{flalign}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\subsection{\texttt{split} environment}
+
+The \verb+split+ environment ???.
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+\section{Theorem-like environments}
+
+These theorem-like environments are defined
+in the amsthm package or in \verb+PurdueThesis.cls+.
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{definition}
+  This is an example definition.
+\end{definition}
+
+\begin{observation}
+  This is an example observation.
+\end{observation}
+
+\begin{proof}
+  This is an example proof.
+  If \(a = b\) and \(b = c\) then \(a = c\).
+\end{proof}
+
+\begin{proposition}
+  This is an example proposition.
+\end{proposition}
+
+\begin{theorem}
+  This is an example theorem.
+\end{theorem}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+brackets and stuff
+
+\href{https://en.wikipedia.org/wiki/Squared_triangular_number}{Nicomachus's theorem}:
+\begin{equation}
+  \sum_{j=1}^n j^3 = \left(\sum_{j=1}^n j\right)^2
+\end{equation}
+
+Also see the
+\href{proof without words}{https://mathworld.wolfram.com/ProofwithoutWords.html}
+on that same page.
+\end{VerbatimOut}
+
+\MyIOT
+
+
+
+
+
+
+
+% https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiSzf370-jmAhXIGs0KHRHyAZQQMwiCASgNMA0&url=https%3A%2F%2Fwww.chegg.com%2Fhomework-help%2Fquestions-and-answers%2Fequations-displacement-atoms-along-linear-chain-d2u-u-m-mass-atoms-c-force-constant-neares-q26052186&psig=AOvVaw1eYq-Q0El0Tbjgbp_Lu2Vv&ust=1578183004388936&ictx=3&uact=3
+
+% M\frac{d^2\mu_n}{dt^2} = C(u_{n_1} - 2u_n + u_{n-1}).
+
+% a^{b} same as a^b     c^{de} f^{g^h} ij^{kl}^{mn}
+
+% superscripts
+% subscripts
+
+% operators
+
+%\sum
+%\prod
+
+%\alpha
+%\beta
+%\gamma
+%\delta
+%\epsilor
+%\varepsilon
+%\zero
+%\eta
+%\theta
+%\vartheta
+%\iota
+%\kappa
+%\lambda
+%\mu
+%\nu\xi
+%\varrho
+%\sigma
+%\varsigma
+%\tau
+%\upsilan
+%\pha
+%\varphi
+%\chi
+%\psi
+%\omega
+
+%\Gamma
+%\Delta
+%\Theta
+%\Lambda
+%\Xi
+%\Pi
+%\Sigmo
+%\Upsilan
+%\Phi
+%\Psi
+%\Omega
+
+%mixed greek and text
+
+%x_min, x_max
+
+%\ldots
+
+%\to
+
+%1 + \frac14 + \frac19 + \cdots = \frac\pi6
+
+%fractions
+
+% frac{\ln x}{\ln\alpha} = log_\alpha x
+
+% \sum_{i=1}^n = 1 + 2 + \cdots + n = \frac{n(n+1)}{2}
+
+
+% xxxx     \end{verbatim}
+% xxxx % Requires \usepackage{amsmath}; use align* for no equation number.
+% xxxx \begin{align}
+% xxxx   a = {}& b + c\\
+% xxxx   x = {}& y + z
+% xxxx \end{align}
+% xxxx     \vskip\baselineskip
+% xxxx     \hrule
+% xxxx     \vskip0.5\baselineskip
+% xxxx     \filbreak
+% xxxx 
+% xxxx     \begin{verbatim}
+% xxxx \[
+% xxxx   Z =
+% xxxx     \left(
+% xxxx       \begin{array}{cc}
+% xxxx         a& b\\
+% xxxx         c& d
+% xxxx       \end{array}
+% xxxx     \right)
+% xxxx \]
+% xxxx     \end{verbatim}
+% xxxx \[
+% xxxx   Z =
+% xxxx     \left(
+% xxxx       \begin{array}{cc}
+% xxxx         a& b\\
+% xxxx         c& d
+% xxxx       \end{array}
+% xxxx     \right)
+% xxxx \]
+% xxxx     \vskip\baselineskip
+% xxxx     \hrule
+% xxxx     \vskip0.5\baselineskip
+% xxxx     \filbreak
+% xxxx 
+% xxxx     \begin{verbatim}
+% xxxx \begin{equation}
+% xxxx   \begin{split}
+% xxxx     a = {}& b + c\\
+% xxxx       & {} + d + e
+% xxxx   \end{split}
+% xxxx \end{equation}
+% xxxx     \end{verbatim}
+% xxxx \begin{equation}
+% xxxx   \begin{split}
+% xxxx     a = {}& b + c\\
+% xxxx       & {} + d + e
+% xxxx     \end{split}
+% xxxx \end{equation}
+% xxxx     \vskip\baselineskip
+% xxxx     \hrule
+% xxxx     \vskip0.5\baselineskip
+% xxxx     \filbreak
+% xxxx 
+% xxxx     \begin{verbatim}
+% xxxx \[
+% xxxx   (\cos x)^2 + (\sin x)^2 = 1
+% xxxx \]
+% xxxx     \end{verbatim}
+% xxxx \[
+% xxxx   (\cos x)^2 + (\sin x)^2 = 1
+% xxxx \]
+% xxxx     \vskip\baselineskip
+% xxxx     \hrule
+% xxxx     \vskip0.5\baselineskip
+% xxxx     \filbreak
+% xxxx 
+% xxxx     \begin{verbatim}
+% xxxx If $X = \cos x$ and $Y = \sin x$ then $X^2 + Y^2 = 1$.
+% xxxx     \end{verbatim}
+% xxxx If $X = \cos x$ and $Y = \sin x$ then $X^2 + Y^2 = 1$.
+% xxxx     \vskip\baselineskip
+% xxxx     \hrule
+% xxxx     \vskip0.5\baselineskip
+% xxxx     \filbreak
+% xxxx 
+% xxxx 
+
+

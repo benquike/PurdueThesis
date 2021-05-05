@@ -1,0 +1,24 @@
+\ProvidesFile{ap-video.tex}[2021-01-04 video appendix]
+
+\begin{VerbatimOut}{z.out}
+\chapter{VIDEO}
+
+This video example doesn't work for me using Firefox on Linux.
+
+% The following is based on information in
+%     http://ctan.math.washington.edu/tex-archive/macros/latex/contrib/media9/doc/media9.pdf
+% Embed a YouTube video.
+\includemedia[
+  activate  = pageopen,
+  flashvars = {
+    autohide        = 1   % Autohide controlbar.
+    &modestbranding = 1   % No YouTube logo in control bar.
+    &rel            = 0   % No related videos after end of this video.
+    &showinfo       = 0   % No title and other info before start of video.
+  },
+  height    = 2.25in,     % 9 x 16 aspect ratio
+  width     = 4in
+]{}{https://www.youtube.com/watch?v=C0DPdy98e4c}
+\end{VerbatimOut}
+
+\MyIOT

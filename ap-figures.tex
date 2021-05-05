@@ -1,0 +1,367 @@
+\ProvidesFile{ap-figures.tex}[2021-02-04 figures appendix]
+
+\begin{VerbatimOut}{z.out}
+\chapter{FIGURES}
+
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+The
+\verb+h+
+specifier used in all the examples below
+tells \LaTeX\ to put the figure
+``here''
+instead of trying
+to find a good spot
+at the top or bottom of a page.
+Specifiers can be combined,
+for example,
+``\verb+\begin{figure}[htbp!]+''.
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+The complete list of specifiers:
+\vspace*{6pt}
+\begin{center}
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    \bf Specifier& \bf Description\cr
+    \midrule
+    \noalign{\vspace*{2pt}}
+    \tt b& bottom of page\cr
+    \tt h& here on page\cr
+    \tt p& on separate page of figures\cr
+    \tt t& top of page\cr
+    \tt !& try hard to put figure as early as possible\cr
+    \bottomrule
+  \end{tabular}
+\end{center}
+\end{VerbatimOut}
+
+\MyIO
+
+
+% !!!! Label ``fi:not-centered'' is ``\ref{fi:not-centered}''.
+% !!!! Label ``sf:four-parts-c'' is ``\ref{sf:four-parts-c}''.
+
+\begin{VerbatimOut}{z.out}
+
+% MyRepeat is defined in MyRepeat.sty.
+\MyRepeat{This is the first paragraph.  }{5}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{figure}[ht]
+  \includegraphics{gr-plot.pdf}
+  \caption{%
+    By default figures are not centered.
+    This is a long caption to demonstrate that captions are single spaced.%
+  }
+  \label{fi:not-centered}
+\end{figure}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\MyRepeat{This is the second paragraph.  }{10}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\MyRepeat{This is the third paragraph.  }{15}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics{gr-plot.pdf}
+  \caption{This is another figuure.}
+  \label{fi:another}
+\end{figure}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\MyRepeat{This is the fourth paragraph.  }{10}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+  
+\begin{figure}[ht]
+  \centering 
+    \subcaptionbox
+      {First subcaption.\label{sf:two-parts-a}}%
+      [2in]%
+      {\bfseries First subfigure.}%
+    \hskip 0.5truein
+    \subcaptionbox
+      {Second subcaption.\label{sf:two-parts-b}}%
+      [2in]%
+      {\bfseries Second subfigure.}%
+    \caption{This figure has two parts.}
+    \label{fi:two-parts}
+\end{figure}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\MyRepeat{This is the fifth paragraph.  }{10}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+  
+\newpage
+
+\begin{figure}[ht]
+  \centering
+    \subcaptionbox
+      {First subcaption.\label{sf:four-parts-a}}
+      [2in]%
+      {\bfseries First subfigure.}%
+    \hskip 0.5truein
+    \subcaptionbox
+      {Second subcaption.\label{sf:four-parts-b}}
+      [2in]%
+      {\bfseries Second subfigure.}%
+    \vspace*{\baselineskip}
+    \subcaptionbox
+      {Third subcaption.\label{sf:four-parts-c}}
+      [2in]%
+      {\bfseries Third subfigure.}%
+    \hskip 0.5truein
+    \subcaptionbox
+      {Fourth subcaption.\label{sf:four-parts-d}}
+      [2in]%
+      {\bfseries Fourth subfigure.}%
+  \caption{This figure has four parts.}
+  \label{fi:four-parts}
+\end{figure}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\MyRepeat{This is the sixth paragraph.  }{10}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\newpage
+
+\begin{figure}[ht]
+  \centering 
+    % Use a 5" font.
+    {\fontsize{5in}{5in}\selectfont\(\hspace*{-0.07em}\sqrt 2\)}
+    \caption{%
+      \LaTeX\ can make output big enough for T-shirts or posters.
+      Square roots are printed with space before them,
+      I put some negative horizontal space before this one to center it.%
+    }
+\end{figure}
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\newpage
+
+The remainder of this file tests having lots of figures.
+There are 20 figures in this test.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{gr-plot.pdf}
+  \caption{Use {\tt \char'134centering\/} to center figures.}
+  \label{fi:centered}
+\end{figure}
+\end{VerbatimOut}
+
+\MyIO
+

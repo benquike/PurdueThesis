@@ -1,0 +1,72 @@
+\ProvidesFile{ap-citations.tex}[2021-01-04 citations appendix]
+
+\begin{VerbatimOut}{z.out}
+\chapter{CITATIONS}
+\end{VerbatimOut}
+
+\MyIO
+
+
+% For \LaTeX\ answers I refer to
+% \citetitle{lamport1994}
+% and then to
+% \citetitle{goossens1994}
+% or
+% \citetitle{kopka1999}.
+% \citetitle{kopka1999}
+% is an update to \citetitle{kopka1995} (the 1995 edition).
+
+\begin{VerbatimOut}{z.out}
+For \LaTeX\ answers I refer to
+\cite{lamport1994}
+and then to
+\cite{goossens1994}
+or
+\cite{kopka1999}.
+\cite{kopka1999}
+is an update to \cite{kopka1995} (the 1995 edition).
+\end{VerbatimOut}
+
+\MyIO
+
+
+Here is an example .bib file entry:
+
+\begin{VerbatimOut}{z.out}
+@misc{example2020,
+  address   = {Imaginaryville, Indiana},
+  author    = {Andrew Anteater and Bertha Bear and Charles Cheetah and Davida Deer and Ethan Eagle},
+  date      = {2020-10-27},
+  doi       = {00.0000/000-0-000-00000-0},
+  editor    = {Mark Senn},
+  edition   = {2},
+  isbn      = {{000\FigureDash 0\FigureDash 000\FigureDash 00000\FigureDash 0}},
+  publisher = {Bogus International Publishing Company},
+  title     = {An Imaginary Document Not About {Mark Senn} or {NASA}},
+  url       = {https://bogus.com/bogus.html},
+  urldate   = {2020-10-27},
+  version   = {1.0},
+}
+\end{VerbatimOut}
+
+\MyI
+
+
+Here are some example BibLaTeX citations.
+Depending on the style being used these will produce different results.
+
+\mbox{}\\
+\begin{tabular}{@{}ll@{}}
+  \bf Input&                        \bf Output\\
+  \verb+\cite{example2020}+&        \cite{example2020}\\
+  \verb+\cite*{example2020}+&       \cite*{example2020}\\
+  \verb+\citeauthor{example2020}+&  \citeauthor{example2020}\\
+  \verb+\citeauthor*{example2020}+& \citeauthor*{example2020}\\
+  \verb+\citedate{example2020}+&    \citedate{example2020}\\
+  \verb+\citetitle{example2020}+&   \citetitle{example2020}\\
+  \verb+\citetitle*{example2020}+&  \citetitle*{example2020}\\
+  \verb+\citeurl{example2020}+&     \citeurl{example2020}\\
+  \verb+\citeyear{example2020}+&    \citeyear{example2020}\\
+  \verb+\parencite{example2020}+&   \parencite{example2020}\\
+  \verb+\textcite{example2020}+&    \textcite{example2020}\\
+\end{tabular}

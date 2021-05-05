@@ -1,0 +1,17 @@
+\ProvidesFile{ch-testing.tex}[2021-01-11 testing chapter]
+
+{
+  \makeatletter
+    \renewcommand\@makechapterhead[1]{{%
+      \renewcommand{\baselinestretch}{1} \reset@font
+      \large\bf\thechapter. #1\endgraf
+    }}
+
+    \chapter{TEST CHAPTER---THIS IS A VERY, VERY, VERY, VERY, VERY, VERY, VERY, VERY, VERY, VERY LONG CHAPTER NAME}
+  \makeatother
+}
+
+This is a footnote\footnote{This is a footnote.}
+
+Cite a reference with a very, very, very, \ldots long title
+\cite{test-long-title}.

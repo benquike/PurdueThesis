@@ -1,0 +1,561 @@
+\ProvidesFile{thesis.tex}[2021-02-05 PurdueThesis template file]
+
+%
+%  Process this using lualatex instead of pdflatex because of the
+%  Feynman diagrams in the "Physics" appendix.
+%
+%  This is the root file for a simple example thesis.
+%  This example can also be used to prepare a dissertation.
+%
+%  This thesis contains Feynman diagrams in the ap-physics.tex file.
+%  For these to be processed correctly you must use the lualatex
+%  program.  If your thesis doesn't have Feynman diagrams use pdflatex
+%  instead of lualatex.
+%  To make a final copy of your thesis put a '%'
+%  in front of the \includeonly command and run:
+%    lualatex thesis
+%    lualatex thesis
+%    lualatex thesis
+%    biber thesis
+%    makeindex thesis
+%    lualatex thesis
+%    lualatex thesis
+%  Running Overleaf on your thesis file should do all of this
+%  automatically.
+%
+%  References cited below:
+%
+%    TM2006 is short for Thesis Manual 2006.
+%    ``A Manual for the Preparation of Graduate Theses'',
+%    seventh revised edition, The Graduate School, Purdue University, 2006.
+%    http://www.purdue.edu/GradSchool/documents/thesis/graduate-thesis-manual.pdf
+%
+%  Search for ``CHANGE'' below and change things as necessary.
+%  I recommend putting ``%%'' before any existing lines that
+%  need to be changed and adding your new line(s) immediately
+%  below the existing lines.
+%
+
+% The kvoptions-patch package does not work in the 2020 version of
+% LaTeX.  Do not try to use it.  Instead change any spaces ( ) in the
+% \documentclass parameter values to at signs (@).
+%
+% (If/when the kvoptions-patch package is fixed, all at sign (@)
+% characters can be changed back to space ( ) characters and the
+%     \RequirePackage{kvoptions-patch}
+% command uncommented.)
+%
+% See
+%     Enter \documentclass parameters
+% at
+%     https://engineering.purdue.edu/~mark/PurdueThesis/#enter
+% for instructions on how to fill in the \documentclass parameters.
+% Remember to change all space ( ) characters in the values to
+% at sign (@) characters.
+\documentclass
+[
+  % Required parameters.
+  institution = {Purdue@University},
+  campus      = {West@Lafayette},
+  program     = {Electrical@and@Computer@Engineering},
+  degree      = {Doctor@of@Philosophy},
+  author      = {Mark@Senn},
+  document    = {A@Dissertation},
+  graduation  = {May@2021},
+  title       = {This@is@a@very@very@very@very@very@very@very@very@very@very@very@very@very@long@Title@of@the@Thesis},
+  % Optional parameters.
+  gridlines   = {true},
+  marginlines = {false},
+  timestamp   = {true},
+]
+{PurdueThesis}
+
+% PurdueThesis.cls loads the rotating package which loads the graphicx
+% package.  From
+%     Packages in the `graphics' bundle
+% at
+%     http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/required/graphics/grfguide.pdf
+% on page 12
+%     \graphicspath{<dir-list>}
+%         This optional declaration may be used to specify a list of
+%         directories in which tosearch for graphics files.  The
+%         format is the same as for the LATEX 2e primitive\input@path.
+%         A list of directories, each in a{}group (even if there is
+%         only one in the list).  For
+%         example:\graphicspath{{eps/}{tiff/}}would cause the system
+%         to look in the subdirectories eps and tiff of the
+%         currentdirectory.  (All modern TeX systems use / as the
+%         directory separator, even on Windows.)   The default setting of
+%         this path is \input@path that is: graphics files will be found
+%         whereever TeX files are found.
+%
+% Look in the "graphics" subfolder for graphics files.
+% This is done to reduce the number of files in the main thesis folder
+% so the ones in there are easier to find.
+\graphicspath{{graphics/}}
+
+% Look in the "packages" subfolder for packages.
+% This is done to reduce the number of files in the main thesis folder
+% so the ones in there are easier to find.
+\makeatletter
+  \def\input@path{{packages/}}
+\makeatother
+
+%
+% Configure bibliography.
+%
+% Automatically configure the bibliography.  Based on the
+% institution, campus, and program listed in the \documentclass
+% command \bibprocessor is set to "biblatex" or "bibtex".
+% For biblatex, a
+%    \usepackage[...]{biblatex}
+% is done.  Put your bibliography entries in all-biblatex.bib.
+% For bibtex, a
+%     \bibliographystyle{...}
+% command is done.  Put your bibliography entries in all-bibtex.bib.
+%
+% All combinations of institution, campus, and program use biblatex.
+% Exceptions that use bibtex:
+%     o  "Purdue University", "West Lafayette", "Earth, Atmospheric,
+%        and Planetary Sciences" uses the ametsoc2014 bibliography style.
+%     o  "Purdue University", "West Lafayette", "Veterinary Clinical
+%        Sciences" uses the ama bibliography style.
+%
+% To override the default choices picked by \ConfigureBibliography, change,
+% for example,
+%     \ConfigureBibliography
+% to
+%     % \ConfigureBibliography
+%     \newcommand{\bibprocessor}{biblatex}
+%     \usepackage[backend=biber, citestyle=apa, dashed=false, sortcites=true, style=apa]{biblatex}
+%     \addbibresource{all-biblatex.bib}
+\ConfigureBibliography
+
+%
+% This is only relevant if you are using biblatex.
+%
+% This is an example of how to ignore urldate fields in your .bib file.
+% See the first complete example on page 201 of
+%     https://mirrors.rit.edu/CTAN/macros/latex/contrib/biblatex/doc/biblatex.pdf
+%
+% If you don't want to ignore urldate fields,
+% comment out (put "%" before) the next ten lines.
+%
+\ifthen{\equal{biblatex}{\bibprocessor}}
+{
+  \DeclareSourcemap{
+    \maps[datatype=bibtex]{
+      \map{
+        \step[fieldset=urldate, null]
+      }
+    }
+  }
+}
+
+% For chemical figures, \chemfig.
+\usepackage{chemfig}
+
+% For \VerbatimInput.
+\usepackage{fancyvrb}
+  % https://andreas.scherbaum.la/blog/archives/670-Read-number-lines-in-a-file-in-LaTeX.html
+  % Indent verbatim by 23.5pt so line numbers are within margin.
+  \makeatletter
+    \@totalleftmargin=23.5pt
+  \makeatother
+  
+% For chemical equations.
+% See
+%     https://ctan.org/pkg/mhchem?lang=en
+% From the "Package documentation" linked-to document
+%     mhchem needs a couple of other packages.
+%     For instance, expl3, amsmath and calc.
+\usepackage[version=4]{mhchem}
+  % If I'm loading the package to just define a few new commands I'll indent
+  % two spaces right after loading the package and define the few new
+  % commands here.  If I'm defining more than a few commands I usually do it
+  % after loading all the packages.
+  % Define "\nitrate" to be the chemical symbol for nitrate.
+  \newcommand{\nitrate}{\ce{NO3{-}}}
+  % Define "\pnitrate" (short for "parenthesized nitrate") to be the chemical
+  % symbol for nitrate surrounded by parentheses.
+  \newcommand{\pnitrate}{(\nitrate)}
+  % "Define \vpnitrate" (short for "verbose parenthesized nitrate") to be
+  % the word "nitrate" followed by a space followed by the chemical symbol
+  % for nitrate with parentheses around it.
+  \newcommand{\vpnitrate}{nitrate (\nitrate)}
+
+% For
+%     \cancel  
+%     \highlight
+% See
+%     http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/contrib/siunitx/siunitx.pdf
+% pages 11--12.  
+\usepackage{cancel}
+  
+% This gets rid of
+%     [5] (./thesis.toc
+%     ! Undefined control sequence.
+%     \vbox_set:Nn ...box:D {\color_group_begin: #2\par 
+%                                                       \color_group_end: }
+%     l.32 ...}Basic Circuit Components}{31}{section.67}
+%                                                       %
+%     ? 
+% and
+%     [6]
+%     ! Undefined control sequence.
+%     \vbox_set:Nn ...box:D {\color_group_begin: #2\par 
+%                                                       \color_group_end: }
+%     l.61 ...rline {P.1}Frenchspacing}{67}{section.445}
+%                                                       %
+%     ?
+% errors.
+% See
+%     https://github.com/latex3/latex2e/issues/73
+\usepackage{etoc}
+
+% For \setmaxprintline.
+% \usepackage{hardwrap}
+
+% For indexing.  Making an index is optional.
+% Make these commands available:
+%     COMMAND           DESCRIPTION
+%     \index{string}    put "string" in index information
+%     \makeindex        save information to make the index
+%     \printindex       print the index
+% See
+%     https://ctan.org/pkg/makeidx?lang=en
+% for more information.
+\usepackage{makeidx}
+  % By default \index ignores its argument.
+  % This activates indexing.
+  \makeindex
+  % The "chapter name" for the index.
+  \renewcommand{\indexname}{INDEX}
+
+% For TeX, LaTeX, METAFONT, METAPOST, etc. related logos.
+% This includes all the logos in the dtk-logos package, see
+%     http://mirrors.ctan.org/macros/latex/contrib/hologo/hologo.pdf
+% plus some extra definitions I made in pa-logos.sty.
+\usepackage{pa-logos}
+
+% For typographical conventions stuff including
+%     \Emph{...}
+%     \First{...}
+%     \Keys{...}
+%     \Literal{...}
+%     \Menu{...}
+%     \Place{...}
+%     \Shell{...}
+\usepackage{pa-typographic-conventions}
+
+% For FloatBarrier.
+% Put \FloatBarrier to process all unproccesed floats (tables and figures).
+\usepackage{placeins}
+
+% The mathtools package
+% (see http://mirror.utexas.edu/ctan/macros/latex/required/amsmath/amsmath.pdf)
+% loads the amsmath package which defines the
+%     align
+%     align*
+%     alignat
+%     alignat*
+%     equation
+%     equation*
+%     flalign
+%     flalign*
+%     gather
+%     gather*
+%     multitaper
+%     multitaper*
+%     split
+% environments and extends amsmath by defining many other commands.
+% See
+%     https://ctan.org/pkg/amsmath
+% for information about amsmath and
+%     http://ctan.math.washington.edu/tex-archive/macros/latex/contrib/mathtools/mathtools.pdf
+% for information about mathtools.
+\usepackage{mathtools}
+
+% Follow ISO 80000-2:2019
+%     o   put e, i, and pi in upright font automatically
+%     o   use, for example, "\di x" to get "\,mathrm{d}\/x"
+% This loads
+%     o   amsmath.sty (which is already loaded above)
+%     o   mathtools.sty
+%     o   upgreek.sty
+% Load the package.
+\usepackage{pa-mismath}
+  % Tell mismath that e, i, j, and pi in upright font automatically.
+  \enumber
+  \inumber
+  \jnumber
+  \pinumber
+  % To typeset math italic e, i, j, and pi use
+  %     \mathit e
+  %     \mathit i
+  %     \mathit j
+  %     \itpi
+
+% Define \includemedia.
+\usepackage{media9}
+
+% Define ``multicols'' environment environment used in demo-multicols.tex.
+% CHANGE NEXT LINE?
+\usepackage{multicol}
+
+% For \ditto command.
+\usepackage{pa-ditto}
+
+% For \DigitDash---a dash the width of a digit in the current font.
+\usepackage{pa-figure-dash}
+
+% For \MyRepeat---????.
+\usepackage{pa-repeat}
+
+
+
+
+
+
+% For \textcent.
+\usepackage{textcomp}
+  
+% !!! This doesn't work yet, figure it out later.
+% For \textprimstress.
+% \usepackage{tipa}
+
+% Needed for chapter "Graphics", section "TikZ and PGF".
+\usepackage{tikz}
+
+% Needed for the Feynman diagram in ap-physics.tex.
+% Tikz-feynman requires lualatex instead of pdflatex be run.
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+% For \verbatiminput.
+\usepackage{verbatim}
+
+% The vertical space between a table heading and the table contents
+% in a tabular environment.
+\newcommand{\tabularspace}{\noalign{\vspace*{2pt}}}
+
+
+% Define \I command so that \I1 does one \indent,
+% \I2 does two \indents, etc.
+\newcommand{\I}[1]{\MyRepeat{\indent}{#1}}
+
+% My input without any output.
+\newcommand{\MyI}{%
+  \vbox{
+    \fontsize{8}{10}\tt
+    \VerbatimInput[
+      firstnumber = 1,
+      numbers     = left,
+    ]{z.out}
+  }
+}  
+
+% My input and output---not necessarily on the same page---but
+% the input will all be on the same page.
+\newcommand{\MyIO}{%
+  \input{z.out}
+
+  \vbox{
+    \fontsize{8}{10}\tt
+    \VerbatimInput[
+      firstnumber = 1,
+      numbers     = left,
+    ]{z.out}
+  }
+}  
+
+% My input and output---not necessarily on the same page---but
+% the input will all be on the same page.
+\newcommand{\MyIOS}{%
+  \input{z.out}
+
+  {%
+    \fontsize{8}{10}\tt
+    \VerbatimInput[
+      firstnumber = 1,
+      numbers     = left,
+    ]{z.out}%
+  }
+}  
+
+% My input and output together (on the same page).
+\def\MyIOT{%
+  \vbox{% no percent was here
+    \input{z.out}% no percent was here
+    % blark line was here
+    \fontsize{8}{10}\tt
+    \VerbatimInput[
+      firstnumber = 1,
+      numbers     = left,
+    ]{z.out}% no percent was here
+  }% no percent was here
+}  
+
+% Define \NL (newline) so LaTeX goes to the next output line.
+% Just doing \\ complains
+%     ! LaTeX Error: There's no line here to end.
+% \mbox{} is an empty math box.
+\newcommand{\NL}{\mbox{}\\}
+
+% Print a list of files used and their version numbers in the log file.
+\listfiles
+
+
+\begin{document}
+
+\maketitle
+
+% Front matter:
+%     dedication
+%     acknowledgments
+%     preface
+%     table of contents
+%     list of tables
+%     list of figures
+%     list of symbols
+%     abbreviations
+%     nomenclature
+%     glossary
+%     abstract
+\include{ch-front}
+
+%
+% Put chapter \include commands here.
+%
+
+% Introductions may precede the first chapters or major divisions of theses.
+% Reference: TM2006, page 31.
+% CHANGE NEXT LINE?
+\include{ch-introduction}
+
+% Summary and/or conclusions are optional but often used.
+% The summary and/or conclusions often are the last
+% the last major division(s) of the text.
+% Reference: TM2006 page 32.
+% CHANGE NEXT LINE?
+\include{ch-summary}
+
+% Recommendations are optional.
+% You may include recommendations as a major division if your
+% subject matter and research dictate.
+% Reference: TM2006 page 32.
+% CHANGE NEXT LINE?
+\include{ch-recommendations}
+
+% Testing.
+% This chapter should not be included in a normal thesis.
+% Its purpose is to test doing some unusual things.
+\include{ch-testing}
+
+
+% Print the bibliography.
+\PrintBibliography
+
+
+% Appendices are optional.
+% Appendices are not necessarily a part of every thesis.
+% An appendix is used for supplementary illustrative material,
+% original data, computer programs, and other material that
+% is not necessarily appropriate for inclusion within the
+% text of your thesis.
+% Reference: TM2006 page 33.
+% Use ``\appendix'' for one appendix or ``\appendices'' for more than one
+% appendix.
+% CHANGE NEXT LINES AND LINES FOLLOWING IT?
+\appendices
+
+% My filename conventions:
+%     FILE THAT START WITH    ARE
+%     ap-                     appendices
+%     ch-                     chapters
+%     pa-                     packages
+%     z                       temporary files
+
+% For "About Appendices" appendix.
+\include{ap-about-appendices}
+
+% Check margins.
+\include{ap-check-margins}
+
+% Citations.
+\include{ap-citations}
+
+% Common mistakes.
+\include{ap-common-mistakes}
+
+% Defining commands.
+\include{ap-defining-commands}
+
+% Demonstrate how to do separate appendices per chapter.
+\include{ap-chapter-appendices}
+
+% Demonstrate how to do separate references per chapter.
+\include{ap-chapter-references}
+
+% Figures.
+\include{ap-figures}
+
+% Graphics.
+\include{ap-graphics}
+
+% Numbers and Units.
+\include{ap-numbers-and-units}
+
+% Resources.
+\include{ap-resources}
+
+% Tables.
+\include{ap-tables}
+
+% Text.
+\include{ap-text}
+
+% Video.
+\include{ap-video}
+
+% PART: Domain-specific Examples
+% https://doi.org/10.6084/m9.figshare.4483784.v2
+\include{ap-astronomy}
+\include{ap-biology}
+\include{ap-chemistry}
+\include{ap-electrical-engineering}
+\include{ap-linguistics}
+\include{ap-mathematics}
+\include{ap-music}
+% For some reason, ap-physics doesn't work when using BibTeX.
+% Just enclosing \include{ap-physics} in braces, i..e.,
+%     {
+%       \include{ap-physics}
+%     }
+% doesn't help.
+\ifthen{\equal{\bibprocessor}{biblatex}}
+{
+  \include{ap-physics}
+}
+
+% Notes and footnotes are optional.
+% Reference: TM2006 page 34.
+% I have not implemented this yet.  Mark Senn 2002-06-03
+
+% A vita is optional for masters theses
+% and required for doctoral dissertations.
+% Reference: TM2006 page 13.
+% CHANGE NEXT LINE?
+\include{ap-vita}
+
+% Listing or including publications(s) is optional.
+\include{ap-publications}
+
+% Print the index.
+% An index is optional.
+\pdfbookmark{INDEX}{index}
+\printindex
+
+% LaTeX won't read after the \end{document} command.
+% You can put notes to yourself or LaTeX input not
+% ready for use here if you'd like.
+\end{document}

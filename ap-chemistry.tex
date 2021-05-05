@@ -1,0 +1,219 @@
+\ProvidesFile{ap-chemistry.tex}[2021-01-04 chemistry appendix]
+
+\begin{VerbatimOut}{z.out}
+\chapter{CHEMISTRY}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+\section{Chemical Diagrams}
+
+The chemplants package \cite{feffin2019}
+extends the
+\href{http://ctan.math.washington.edu/tex-archive/graphics/pgf/base/doc/pgfmanual.pdf}{\TikZ} package
+to draw chemical process units.
+\end{VerbatimOut}
+
+\MyIO
+
+
+\begin{VerbatimOut}{z.out}
+
+\section{Chemical Equations}
+
+The mhchem Bundle \cite{hensel2018}
+contains mhchem v4.08 (chemical equations),
+hpstatement v1.02 (official hazard and precautionary statements),
+and rsphrase v3.11 (official rist and safety phrases).
+\end{VerbatimOut}
+
+\MyIO
+
+
+
+
+\begin{VerbatimOut}{z.out}
+
+Defined in thesis.tex: \nitrate.
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+% See page 1 of
+%     https://www.thoughtco.com/what-is-a-chemical-equation-604026
+\ce{CH4 + 2O2 -> CO2 + 2H2O}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+% See page 1 of
+%     https://www.thoughtco.com/what-is-a-chemical-equation-604026
+\ce{2H2(g) + O2(g) -> 2H2O(l)}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+% See page 1 of
+% https://www.thoughtco.com/definition-of-ionic-equation-605262
+\ce{Ag+(aq) + NO3-(aq) + Na+(aq) + Cl-(aq) -> AgCl(s) + Na+(aq) + NO3-(aq)}
+is an ionic equation of the chemical reaction:
+\ce{AgNO3(aq) + NaCl(aq) -> AgCl(s) + NaNO3(aq)}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+% See page 1 of
+%     https://www.thoughtco.com/definition-of-balanced-equation-and-examples-604380
+\ce{Fe2O3 + C -> Fe + CO2}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+% From page 1 of
+%     https://www.thoughtco.com/definition-of-molecular-equation-605366
+
+For example, in the reaction between sodium chloride
+(\ce{NaCl})
+and silver nitrate
+(\ce{AgNO3}),
+the molecular reaction is:
+
+\ce{NaCl(aq) + AgNO3 -> NaNO3(aq) + AgCl(s)}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+The complete ionic equation is:
+
+\ce{Na+(aq) + Cl-(aq) + Ag+(aq) + NO3-(aq) -> AgCl(s) + Na+(aq) + NO3-(aq)}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+Ruben Meerman \cite[starting at 5:25]{meerman} claims this equation
+\begin{center}
+  \ce{C55H104O6 + 78O2 -> 55CO2 + 52H2O + energy}\endgraf
+\end{center}
+describes weight loss.
+\end{VerbatimOut}
+
+\MyIOT
+
+\begin{VerbatimOut}{z.out}
+
+And with better annotation:
+
+\begin{center}
+  \newcommand{\vph}{{\vphantom{\large Ag}}}
+  \ce{
+    $\underset{\text{\vph \footnotesize human fat}}{\ce{C55H104O6}}$
+    +
+    $\underset{\text{\vph \footnotesize oxygen}}{\ce{78O2}}$
+    ->
+    $\underset{\text{\vph \footnotesize carbon dioxide}}{\ce{55CO2}}$
+    +
+    $\underset{\text{\vph \footnotesize water}}{\ce{52H2O}}$
+    +
+    $\underset{\text{\vph \footnotesize body heat, moving, thinking, growing}}{\text{energy}}$
+  }
+\end{center}
+\end{VerbatimOut}
+
+\MyIOT
+
+\begin{VerbatimOut}{z.out}
+
+And with still better annotation:
+
+\begin{center}
+  \newcommand{\Fs}{\scriptsize}
+  \begin{tabular}{@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}c@{}}
+    &                                                       %  1. C55H10406
+      &                                                     %  2. +
+      &                                                     %  3. 78O2
+      &                                                     %  4. ->
+      &                                                     %  5. 55CO2
+      &                                                     %  6. +
+      &                                                     %  7. 52H2O
+      &                                                     %  8. +
+      \Fs calories\\                                        %  9. energy
+    %
+    \Fs kg&                                                 %  1.
+      &                                                     %  2.
+      \Fs kg&                                               %  3.
+      &                                                     %  4.
+      \Fs kg&                                               %  5.
+      &                                                     %  6.
+      \Fs kg&                                               %  7.
+      &                                                     %  8.
+      \Fs kJ\\                                              %  9.
+    %
+    \noalign{\vspace{3pt}}
+    %
+    \ce{C55H104O6}                                          %  1.
+      & \ce{+}                                              %  2.
+      & \ce{78O2}                                           %  3.
+      & \ce{->}                                             %  4.
+      & \ce{55CO2}                                          %  5.
+      & \ce{+}                                              %  6.
+      & \ce{52H2O}                                          %  7.
+      & \ce{+}                                              %  8.
+      & energy\\                                            %  9.
+    %
+    \Fs human fat&                                          %  1.
+      &                                                     %  2.
+      \Fs oxygen&                                           %  3.
+      &                                                     %  4.
+      \Fs carbon dioxide&                                   %  5.
+      &                                                     %  6.
+      \Fs water&                                            %  7.
+      &                                                     %  8.
+      \Fs body heat, moving, thinking, growing\\            %  9.
+  \end{tabular}
+\end{center}
+\end{VerbatimOut}
+
+\MyIOT
+
+
+\begin{VerbatimOut}{z.out}
+
+
+\section{Chemical Figures}
+
+Below is an example of how to use the chemfig package \cite{tellechea2019}.
+
+% Chicago Manual of Style Online, 17 edition, section 9.61 states
+% that 72--73, not 72--3, should be used.
+Here is the chemical figure
+for Penicillin \cite[pages~72--73]{tellechea2019}:\\
+
+\chemfig{[:-90]HN(-[::-45](-[::-45]R)=[::+45]O)>[::+45]*4(-(=O)-N*5(-(<:(=[::-60]O)
+-[::+60]OH)-(<[::+0])(<:[::-108])-S>)--)}
+\end{VerbatimOut}
+
+\MyIOT

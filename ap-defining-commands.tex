@@ -1,0 +1,18 @@
+\ProvidesFile{ap-defining-commands.tex}[2021-01-04 defining commands appendix]
+
+\begin{VerbatimOut}{z.out}
+\chapter{DEFINING COMMANDS}
+
+The next paragraph demonstrates how to define and use a command.
+
+\renewcommand{\t}[2]
+{%
+  Editors recommend that a #1 should never be
+  followed by a #2 without some intervening text.
+  I suggest writing for readers
+
+}
+
+\t{chapter title}{section heading}
+\end{VerbatimOut}
+\MyIO
