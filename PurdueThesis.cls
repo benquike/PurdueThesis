@@ -284,6 +284,7 @@ psdextra      = true,
 \usepackage{ltxtable}
 \usepackage{pgffor}
 \usepackage{rotating}
+\usepackage{listings}
 % Define
 %     o  \num{} to format numbers correctly
 %     o  abbreviations for units \m (meter), \kg (kilogram), etc.
@@ -4887,6 +4888,7 @@ by\\
 \def\ZZdegreesize{\normalsize}
 \def\ZZchapterseries{\bfseries}
 \def\ZZfigureseries{\bfseries}
+\def\ZZlistingseries{\bfseries}
 \def\ZZsectionseries{\bfseries}
 \def\ZZsubsectionseries{\bfseries}
 \def\ZZsubsubsectionseries{\bfseries}
@@ -4903,6 +4905,7 @@ by\\
 \def\ZZtablesize{\normalsize}
 \def\ZZFigurePunct{. }
 \def\ZZTablePunct{. }
+\def\ZZListingPunct{. }
 \setcounter{tocdepth}{4}
 \def\undertext#1{$\underline{\smash{\hbox{#1}}}$}
 \renewcommand{\figurename}{Figure~}
@@ -4911,6 +4914,8 @@ by\\
 \def\ZZchapterheadspaceb{0.5\baselineskip}
 \def\ZZschapterheadspacea{0.6truein}
 \def\ZZschapterheadspaceb{0.5\baselineskip}
+\renewcommand{\lstlistingname}{Listing~}
+\renewcommand{\fnum@lstlisting}{{\ZZlistingseries\lstlistingname~\thelstlisting.}~}
 \str_case:Vn {\ZZinscampro}
 {
 {pu-in-bme}
