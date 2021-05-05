@@ -276,16 +276,72 @@ psdextra      = true,
 \def\str_case:Vn#1#2{\str_case:VnTF{#1}{#2}{}{}}
 \ExplSyntaxOff
 \usepackage[letterpaper,left=1in,top=1.1in,bottom=1in,right=1in]{geometry}
+
 \usepackage{ifthen}
 \newcommand{\ifthen}[2]{\ifthenelse{#1}{#2}{}}
+
 \usepackage{ifpdf}
 \usepackage{lmodern}
 \usepackage{lscape}
 \usepackage{ltxtable}
 \usepackage{pgffor}
 \usepackage{rotating}
+
+% setup listings for source code
 \usepackage{listings}
-% Define
+% a walk around for the bug in lstlinebgrd
+% https://tex.stackexchange.com/questions/451532/recent-issues-with-lstlinebgrd-package-with-listings-after-the-latters-updates
+\makeatletter
+\let\old@lstKV@SwitchCases\lstKV@SwitchCases
+\def\lstKV@SwitchCases#1#2#3{}
+\makeatother
+\usepackage{lstlinebgrd}
+\makeatletter
+\let\lstKV@SwitchCases\old@lstKV@SwitchCases
+
+\lst@Key{numbers}{none}{%
+    \def\lst@PlaceNumber{\lst@linebgrd}%
+    \lstKV@SwitchCases{#1}%
+    {none:\\%
+     left:\def\lst@PlaceNumber{\llap{\normalfont
+                \lst@numberstyle{\thelstnumber}\kern\lst@numbersep}\lst@linebgrd}\\%
+     right:\def\lst@PlaceNumber{\rlap{\normalfont
+                \kern\linewidth \kern\lst@numbersep
+                \lst@numberstyle{\thelstnumber}}\lst@linebgrd}%
+    }{\PackageError{Listings}{Numbers #1 unknown}\@ehc}}
+\makeatother
+
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1.0,1.0,1.0}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    frame=single,
+    numbers=left,
+    xleftmargin=0em,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    belowskip=1em,
+}
+\lstset{style=mystyle}
+
+
+% 2Define
 %     o  \num{} to format numbers correctly
 %     o  abbreviations for units \m (meter), \kg (kilogram), etc.
 %     o  \SI, used to typset quantities with units, e.g., \SI{1.23e9}{\ms}
