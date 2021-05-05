@@ -23,6 +23,7 @@ and using appropriate chapter names.
 
 \section{English-related information}
 
+
 \subsection{Typographic Conventions}
 
 {
@@ -154,6 +155,69 @@ Graphics files start with \verb+gr-+.
 \paragraph{A new Paragraph}
 
 \LaTeX\ package files start with \verb+pa-+.
+
+
+\section{Tables}
+
+% you can create latex tables using
+% this website: https://www.tablesgenerator.com/#
+Here is a table \autoref{tab:tab_label}.
+
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|l|l|l|}
+    \hline
+    Column 1 & Column 2 & Column 3 \\ \hline
+    Cell 1   & Cell 2   & Cell 3   \\ \hline
+    Cell 4   & Cell 5   & Cell 6   \\ \hline
+  \end{tabular}
+  \caption{A sample table}
+  \label{tab:tab_label}
+
+\end{table}
+
+\section{Figures}
+
+Here is a figure: \autoref{fig:fig1}.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics{gr-kim1}
+  \caption{A sample figure}%
+  \label{fig:fig1}
+\end{figure}
+
+
+\section{Code Listing}
+
+
+See \autoref{lst:example}.
+
+\begin{lstlisting}[float, floatplacement=!h, language=C, caption= {An Example For
+  Code Listing}, label={lst:example}]
+void main() {
+  char x[16];
+  read(stdin, x, 16);
+
+  if (x[0] == 'A' && x[1] == 'B') {
+      if (x[2] >= 'a') {
+        if (x[2] <= 'z') {
+           format1(x);
+        } else {
+          goto failure;
+        }
+      } else {
+        if (x[2] >= 'A' && x[2] <= 'Z') {
+           format2(x);
+        } else {
+           goto failure;
+        }
+      }
+  }
+failure:
+  error();
+}
+\end{lstlisting}
 
 
 \section{\LaTeX-related information}
