@@ -4891,6 +4891,8 @@ by\\
 \def\ZZsubsectionseries{\bfseries}
 \def\ZZsubsubsectionseries{\bfseries}
 \def\ZZsubsubsubsectionseries{\bfseries}
+\def\ZZparagraphseries{\bfseries}
+\def\ZZsubparagraphseries{\bfseries}
 \def\ZZtableseries{\bfseries}
 \def\ZZchaptersize{\large}
 \def\ZZfiguresize{\normalsize}
